@@ -1,0 +1,72 @@
+VScode 配置SSH
+Host ssh.intern-ai.org.cn #主机ip也可以是域名
+  HostName ssh.intern-ai.org.cn #主机名
+  Port 37367 #主机的SSH端口
+  User root #登录SSH使用的用户
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
+实施端口映射
+ssh -p 48613 root@ssh.intern-ai.org.cn -CNg -L 7860:127.0.0.1:7860 -o StrictHostKeyChecking=no
+下面给他大家介绍一下命令各部分的含义：
+
+-p 48613：是指定 SSH 连接的端口为 37367，这个前面提到过。
+root@ssh.intern-ai.org.cn：表示要以 root 用户身份连接到 ssh.intern-ai.org.cn 这个主机。
+-CNg：
+-C 通常用于启用压缩。
+-N 表示不执行远程命令，仅建立连接用于端口转发等。
+-g 允许远程主机连接到本地转发的端口。
+-L {本地机器_PORT}:127.0.0.1:{开发机_PORT}：这是设置本地端口转发，将本地机器的指定端口（由 {本地机器_PORT} 表示）转发到远程主机（这里即 ssh.intern-ai.org.cn）的 127.0.0.1 （即本地回环地址）和指定的开发机端口（由 {开发机_PORT} 表示）。
+-o StrictHostKeyChecking=no：关闭严格的主机密钥检查，这样可以避免第一次连接时因为未知主机密钥而产生的提示或错误。
+
+在完成开发机的初始化后，即可在本地查看Python hello-world.py的运行结果
+
+
+图片居然不能粘贴过来，不知道原因
+
+LINUX基本命令就跳过了
+
+CONDA环境复习：
+conda --version  
+conda 23.9.0
+ 
+#设置清华镜像
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+
+查看配置信息：
+conda config --show
+
+创建环境
+conda create -n liuj23 python``=3.10
+查看环境
+conda env list
+conda info -e
+conda info --envs
+
+激活与停止
+conda activate
+conda deactivate
+
+开发机的环境变量：
+export no_proxy='localhost,127.0.0.1,0.0.0.0,172.18.47.140'
+export PATH=/root/.local/bin:$PATH
+export HF_ENDPOINT='https://hf-mirror.com'
+alias studio-conda="/share/install_conda_env.sh"
+alias studio-smi="/share/studio-smi"
+
+studio-smi
+#!/bin/bash
+
+if command -v vgpu-smi &> /dev/null
+then
+    echo "Running studio-smi by vgpu-smi"
+    vgpu-smi
+else
+    echo "Running studio-smi by nvidia-smi"
+    nvidia-smi
+fi
+
