@@ -3,4 +3,6 @@
 
 
 ##This is just a leaning record.
-学习来源 GitHub 仓库（https://github.com/InternLM/Tutorial） （<u>[https://github.com/InternLM/Tutorial](https://github.com/InternLM/Tutorial)</u>）
+
+学习来源 GitHub 仓库（https://github.com/InternLM/Tutorial） （<u>[点我跳转InternLMl](https://github.com/InternLM/Tutorial)</u>）
+
