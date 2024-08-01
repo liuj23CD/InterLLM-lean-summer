@@ -114,3 +114,12 @@ lmdeploy serve gradio /share/new_models/OpenGVLab/InternVL2-2B --cache-max-entry
 在完成端口映射后，我们便可以通过浏览器访问 http://localhost:6006 来启动我们的 Demo。
 
 在使用 Upload Image 上传图片后，我们输入 Instruction 后按下回车，便可以看到模型的输出。
+
+-----------------------------------------------------------------------------------------------------
+-------------------------实验的输出结果---------------------------------------------------------------
+![image](https://github.com/user-attachments/assets/c71c8f54-a8a2-46d3-b975-8bd9033bffae)
+
+
+![image](https://github.com/user-attachments/assets/714a32fe-e5d9-4355-b5c9-d46bf1a68b4f)
+
+
