@@ -123,4 +123,5 @@ lmdeploy serve gradio /share/new_models/OpenGVLab/InternVL2-2B --cache-max-entry
 ![image](https://github.com/user-attachments/assets/714a32fe-e5d9-4355-b5c9-d46bf1a68b4f)
 
 ![image](https://github.com/user-attachments/assets/93b3367f-eaca-498b-9ac6-2775876c2c3b)
+![image](https://github.com/user-attachments/assets/ae87d9d0-b0a0-4b43-8aa7-d54d6703f433)
 
